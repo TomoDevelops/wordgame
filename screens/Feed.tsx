@@ -1,10 +1,9 @@
-import { Box } from "native-base";
-
+import { View, Text } from "react-native";
 const Feed = () => {
     return (
-        <Box flex={1} justifyContent="center" alignItems="center">
-            Feed
-        </Box>
+        <View>
+            <Text>Feed</Text>
+        </View>
     );
 };
 export default Feed;
