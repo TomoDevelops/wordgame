@@ -1,9 +1,10 @@
-import { View, Text } from "react-native";
+import { Box } from "native-base";
+
 const Home = () => {
     return (
-        <View>
-            <Text>Home</Text>
-        </View>
+        <Box flex={1} justifyContent="center" alignItems="center">
+            Home
+        </Box>
     );
 };
 export default Home;
