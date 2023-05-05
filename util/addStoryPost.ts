@@ -1,8 +1,8 @@
+import { addDoc, collection } from "firebase/firestore";
 import { v4 as uuidv4 } from "uuid";
 import { FIRESTORE_DB } from "../firebaseConfig";
-import { addDoc, collection } from "firebase/firestore";
 
-const addData = async () => {
+export const addData = async () => {
     console.log(`Added`);
     const uuid = uuidv4();
     const doc = addDoc(collection(FIRESTORE_DB, "storyPost"), {
