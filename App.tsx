@@ -1,18 +1,37 @@
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useFonts } from "expo-font";
 import * as SplashScreen from "expo-splash-screen";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { AntDesign, Entypo, Ionicons } from "@expo/vector-icons";
 
+import AsyncStorage from "@react-native-async-storage/async-storage";
+
 import Home from "./screens/Home";
 import Feed from "./screens/Feed";
 import Create from "./screens/Create";
 
 import Signup from "./screens/Signup";
+import { Text, View } from "react-native";
 
 export default function App() {
     const Tab = createBottomTabNavigator();
+    // const [isFirstLaunch, setIsFirstLaunch] = useState<Boolean | null>(null);
+
+    // useEffect(() => {
+    //     async function checkIsFirstLaunch() {
+    //         const hasLaunchedBefore = await AsyncStorage.getItem(
+    //             "hasLaunchedBefore"
+    //         );
+    //         if (hasLaunchedBefore === null) {
+    //             setIsFirstLaunch(true);
+    //             await AsyncStorage.setItem("hasLaunchedBefore", "true");
+    //         } else {
+    //             setIsFirstLaunch(false);
+    //         }
+    //     }
+    //     checkIsFirstLaunch();
+    // }, []);
 
     const [fontsLoaded] = useFonts({
         "notosans-thin": require("./assets/fonts/NotoSansJP-Thin.ttf"),
@@ -37,6 +56,14 @@ export default function App() {
     if (!fontsLoaded) {
         return undefined;
     }
+
+    // if (isFirstLaunch === null) {
+    //     return (
+    //         <View className="flex justify-center items-center">
+    //             <Text>Tutorial</Text>
+    //         </View>
+    //     );
+    // }
 
     return (
         <NavigationContainer>
